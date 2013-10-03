@@ -81,6 +81,26 @@ function registerUserMenu() {
 
 	$().ready(function() {
 		$("#kanban-dnd-div .columnCollapsed").hide();
+		
+	
+		
+     $('.sch-task').hover(
+         function () {
+           $(this).css({"background-color":"#EEFFFF","color":"#888888"});
+         }, 
+         function () {
+           $(this).css({"background-color":"#FFFFFF","color":"#888888"});
+         }
+     );
+	 
+   $('.sch-task').click(
+         function () {
+           $(this).css({"background-color":"#7b68ee","color":"#FFFFFF"});
+         }
+        
+     );
+
+
 		});
 	
 		var totWidth = 92;
