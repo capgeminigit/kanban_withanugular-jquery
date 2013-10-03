@@ -38,7 +38,7 @@ function dndCtrl($scope) {
 		 $scope.$watch('nstart', function (newValue) {
         if (angular.isArray(newValue)) {
 		newValue.map(function(e){
-				$(".control-label"+e.id).click(function(){
+				$(".control-label"+e.id).dblclick(function(){
 					var placeholder=$(this).html();
 					$(this).hide();
 					$(".input-medium"+e.id).show();
@@ -60,7 +60,7 @@ function dndCtrl($scope) {
 		 $scope.$watch('inProgress', function (newValue) {
         if (angular.isArray(newValue)) {
 		newValue.map(function(e){
-				$(".control-label"+e.id).click(function(){
+				$(".control-label"+e.id).dblclick(function(){
 					var placeholder=$(this).html();
 					$(this).hide();
 					$(".input-medium"+e.id).show();
@@ -82,7 +82,7 @@ function dndCtrl($scope) {
 		 $scope.$watch('test', function (newValue) {
         if (angular.isArray(newValue)) {
 			newValue.map(function(e){
-				$(".control-label"+e.id).click(function(){
+				$(".control-label"+e.id).dblclick(function(){
 					var placeholder=$(this).html();
 					$(this).hide();
 					$(".input-medium"+e.id).show();
@@ -104,7 +104,7 @@ function dndCtrl($scope) {
 		 $scope.$watch('done', function (newValue) {
         if (angular.isArray(newValue)) {
 		newValue.map(function(e){
-				$(".control-label"+e.id).click(function(){
+				$(".control-label"+e.id).dblclick(function(){
 					var placeholder=$(this).html();
 					$(this).hide();
 					$(".input-medium"+e.id).show();
