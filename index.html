@@ -35,8 +35,8 @@
 									</div>
 								</div>
 								  <ul id="sourceList" dnd-between-list="notStarted,targetList"
-								ng-class="{'minimalList':notStartedEmpty()}" class="sortable-list col1"  >
-							<li ng-repeat="item in nstart = (taskStore | filter:{ state: 0 })" ><div class="sch-task"><div class="sch-color"></div>
+								ng-class="{'minimalList':notStartedEmpty()}" class="sortable-list col1"  state="0">
+							<li ng-repeat="item in nstart = (taskStore | filter:{ state: 0 })" item-index="{{$index}}" item-id="{{item.id}}" item-state="{{item.state}}"><div class="sch-task"><div class="sch-color"></div>
 						<div class="sch-task-name"/>
 								<label for="name" class="control-label{{item.id}}">{{item.name}}</label>
 									<input type="text" class="input-medium{{item.id}}" style="display:none;" />	
@@ -61,8 +61,8 @@
 								</div>
 								<ul class="sortable-list col2" id="targetList"
 	                dnd-between-list="inProgress,targetList1,sourceList"
-	                ng-class="{'minimalList':inProgressEmpty()}" >
-								 <li ng-repeat="item in inProgress = (taskStore | filter:{ state: 1 })"><div class="sch-task"><div class="sch-color"></div>
+	                ng-class="{'minimalList':inProgressEmpty()}" state="1">
+								 <li ng-repeat="item in inProgress = (taskStore | filter:{ state: 1 })" item-index="{{$index}}" item-id="{{item.id}}" item-state="{{item.state}}"><div class="sch-task"><div class="sch-color"></div>
 							<div class="sch-task-name"/>
 								<label for="name" class="control-label{{item.id}}">{{item.name}}</label>
 									<input type="text" class="input-medium{{item.id}}" style="display:none;" />	
@@ -85,10 +85,9 @@
 										<img src="img/collapse.png" class="cursor-hand" type="collapseColumn"/>
 									</div>
 								</div>
-								<ul class="sortable-list col3" id="targetList1"
-	                 dnd-between-list="test,targetList,targetList2"
-	                ng-class="{'minimalList':testEmpty()}">
-									 <li ng-repeat="item in test = (taskStore | filter:{ state: 2 })">
+								<ul class="sortable-list col3" id="targetList1" dnd-between-list="test,targetList,targetList2"
+	                					ng-class="{'minimalList':testEmpty()}" state="2">
+									 <li ng-repeat="item in test = (taskStore | filter:{ state: 2 })" item-index="{{$index}}" item-id="{{item.id}}" item-state="{{item.state}}">
 									 <div class="sch-task"><div class="sch-color"></div>
 							<div class="sch-task-name"/>
 								<label for="name" class="control-label{{item.id}}">{{item.name}}</label>
@@ -113,9 +112,8 @@
 									</div>
 								</div>
 								<ul class="sortable-list col4" id="targetList2"
-	                 dnd-between-list="done,targetList1"ng-class="{'minimalList':doneEmpty()}">
-								 <li class=""
-	                    ng-repeat="item in done = (taskStore | filter:{ state: 3 })"> <div class="sch-task"><div class="sch-color"></div>
+	                 				dnd-between-list="done,targetList1"ng-class="{'minimalList':doneEmpty()}" state="3">
+								 <li class="" ng-repeat="item in done = (taskStore | filter:{ state: 3 })" item-index="{{$index}}" item-id="{{item.id}}" item-state="{{item.state}}"> <div class="sch-task"><div class="sch-color"></div>
 	                    	<div class="sch-task-name"/>
 								<label for="name" class="control-label{{item.id}}">{{item.name}}</label>
 									<input type="text" class="input-medium{{item.id}}" style="display:none;" />	
