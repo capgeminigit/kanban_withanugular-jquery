@@ -36,6 +36,9 @@ app.directive('dndBetweenList', function($parse) {
 						var dropEl = angular.element(this);
 						var dropState = parseInt(dropEl.attr("state"));
 
+						if (currentState == dropState) {
+						return;
+						}
 						var scope = ui.draggable.scope();
 						var store = scope.taskStore;
 						var index = -1;
