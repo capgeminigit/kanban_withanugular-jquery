@@ -17,42 +17,59 @@ app.directive('dndBetweenList', function($parse) {
 			connectWith : '#targetList1'
 		});
 
-		element.droppable({
-			drop : function(event, ui) {
-				// var uiItem = ui.draggable;
-				// var dragIndex = uiItem.attr("item-index");
-			//	var state = ui.draggable.attr("item-state");
-				// var dragEl = angular.element(ui.draggable).parent();
+		var possibleToStates = new Array();
+		possibleToStates[0] = [ 1 ];
+		possibleToStates[1] = [ 0, 2 ];
+		possibleToStates[2] = [ 1, 3 ];
+		possibleToStates[3] = [ 2 ];
 
-				var dragId = ui.draggable.attr("item-id");
-				var dragstate = ui.draggable.attr("item-state");
-				var dropEl = angular.element(this);
-				var dropState = dropEl.attr("state");
+		element
+				.droppable({
+					drop : function(event, ui) {
+						// var uiItem = ui.draggable;
+						// var dragIndex = uiItem.attr("item-index");
+						// var dragEl = angular.element(ui.draggable).parent();
 
-				var scope = ui.draggable.scope();
-				var store = scope.taskStore;
-				var index = -1;
-				for ( var i = 0; i < store.length; i++) {
-					if (dragId == store[i].id) {
-						index = i;
-						break;
+						var currentState = parseInt(ui.draggable
+								.attr("item-state"));
+						var dragId = ui.draggable.attr("item-id");
+						var dropEl = angular.element(this);
+						var dropState = parseInt(dropEl.attr("state"));
+
+						var scope = ui.draggable.scope();
+						var store = scope.taskStore;
+						var index = -1;
+						for ( var i = 0; i < store.length; i++) {
+							if (dragId == store[i].id) {
+								index = i;
+								break;
+							}
+						}
+						if (index != -1) {
+							if (possibleToStates[currentState]
+									.indexOf(dropState) != -1) {
+								store[index].state = dropState;
+							} else {
+								// event.stopPropagation();
+								// event.preventDefault();
+								var states = possibleToStates[currentState];
+								for ( var i = dropState; i >= 0; i--) {
+									if (states.indexOf(i) != -1) {
+										store[index].state = i;
+										break;
+									}
+								}
+								for ( var i = dropState; i <= 3; i++) {
+									if (states.indexOf(i) != -1) {
+										store[index].state = i;
+										break;
+									}
+								}
+							}
+						}
+						scope.$apply();
+						console.log("dropped");
 					}
-				}
-				if (index != -1) {
-				
-				var start =Number(dragstate)+1;
-				var end =Number(dragstate-1);
-				alert(dropState +"----"+start+"----"+end);
-				if(dropState == start || dropState == end){
-					store[i].state = dropState;
-					scope.$apply();
-					}
-					else{
-					store[i].state = Number(dragstate)+1;
-					}
-				}
-				console.log("dropped");
-			}
-		});
+				});
 	};
 });
