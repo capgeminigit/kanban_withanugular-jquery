@@ -130,6 +130,7 @@ function dndCtrl($scope) {
 					$(this).hide();
 					$(".control-label" + e.id).show();
 					$(".control-label" + e.id).html(placeholder);
+					e.name =placeholder;
 				});
 			});
 
@@ -152,6 +153,7 @@ function dndCtrl($scope) {
 					$(this).hide();
 					$(".control-label" + e.id).show();
 					$(".control-label" + e.id).html(placeholder);
+					e.name =placeholder;
 				});
 			});
 
@@ -174,6 +176,7 @@ function dndCtrl($scope) {
 					$(this).hide();
 					$(".control-label" + e.id).show();
 					$(".control-label" + e.id).html(placeholder);
+					e.name =placeholder;
 				});
 			});
 
@@ -196,6 +199,7 @@ function dndCtrl($scope) {
 					$(this).hide();
 					$(".control-label" + e.id).show();
 					$(".control-label" + e.id).html(placeholder);
+					e.name =placeholder;
 				});
 			});
 
