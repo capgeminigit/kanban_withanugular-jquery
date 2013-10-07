@@ -25,10 +25,10 @@
 
 #kanban-dnd-wrapper {
     height: 95%;
-    margin: 0 auto;
-    width: 95%;
+    margin: 0 15px;
+    overflow-x: hidden;
+    width: 100%;
 }
-
 /* Columns */
 
 .column {
@@ -42,7 +42,6 @@
     border-radius: 5px;
 	background-color: #DADADA;
 }
-.column.first {margin-left: 0;}
 
 .column-title{
 	width:100%;
@@ -60,6 +59,12 @@
     text-align: right;
     margin-right: 20px;
 }
+ .hidden{
+        display: none; 
+		}
+.first {
+    margin-left: 0;
+}
 	
 /* Sortable items */
 
@@ -68,9 +73,12 @@
 	list-style: none;
 	margin: 0;
 	height:95%;
-	overflow:auto;
-	padding: 10px;
-	
+    padding: 0 10px;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+	border-radius: 5px;
 }
 
 	  .col1 li  .sch-color{
@@ -233,7 +241,6 @@
     margin-left: 2%;
     width: 23%;
 	padding: 15px 0;
-	overflow: hidden;
 }
 
 .column, .columnCollapsed {
@@ -244,7 +251,6 @@
 	width: 100%;
 	margin: 0%;
 	padding: 15px 0;
-	overflow: hidden;
 }
 
 .columnCollapsed {
@@ -261,20 +267,20 @@
          -o-transform: rotate(90deg) translate(10px, -40px);
             transform: rotate(90deg) translate(10px, -40px);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-    
-    font-size: 1.2em;
-    font-weight: bold;
     width: 200px;
-    color: #666666;
+	font-size: 1.6em !important;
+	font-weight:normal !important;
 }
 
 .columnMain {
 	float: left;
-	margin-left: 2%;
+	margin-left: 1.5%;
 	height: 100%;
-	width: 23%;
+	width: 23.1%;
 }
-
+.columnMain.first {
+    margin-left: 1%;
+}
 .exp{
   float:left;
     margin-right:5px;
@@ -293,8 +299,12 @@ float:left;
 }
 
 .pane-title{
-  font-family: tahoma,arial,verdana,sans-serif;
-  color: #666666;
+   color: #666666;
     display: block;
-    font-size: 1.2em;
+    font-family: tahoma;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 15px;
+    margin: 5px;
+    text-transform: none;
 }
