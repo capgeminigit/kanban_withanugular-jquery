@@ -44,24 +44,8 @@ function registerUserMenu() {
 			
 
 	$().ready(function() {
-	
-		registerUserMenuForAll();
-
 		$("#kanban-dnd-div .columnCollapsed").hide();
-		
-		$('.sch-user-avatar').each(function(i, obj) {
-			var fileext=obj.src;
-			var n=fileext.lastIndexOf(".");
-			var fileType="";
-			if(n != -1)
-				fileType=fileext.substring(n+1);
-				if(fileType.length !=0 && fileType == 'html'){
-					$(obj.parentNode).css("display","none");
-				}
-			else
-				$(obj.parentNode).css("display","block");
-			});
-		});
+	});
 	
 		var totWidth = 92;
 		var expandedWidth = 23;
